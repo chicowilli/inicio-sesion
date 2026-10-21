@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro e inicio de sesión</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <main class="page">
+    <h1>Mi cuenta</h1>
+
+    {% with mensajes = get_flashed_messages(with_categories=true) %}
+      {% if mensajes %}
+        <div class="messages" role="status" aria-live="polite">
+          {% for categoria, mensaje in mensajes %}
+            <p class="message message--{{ categoria }}">{{ mensaje }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="forms">
+      <section class="panel" aria-labelledby="registro-titulo">
+        <h2 id="registro-titulo">Registro</h2>
+        <form action="{{ url_for('usuarios.registro') }}" method="post">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" autocomplete="given-name" required>
+
+          <label for="apellido">Apellido</label>
+          <input id="apellido" name="apellido" autocomplete="family-name" required>
+
+          <label for="registro-email">E-mail</label>
+          <input id="registro-email" name="email" type="email" autocomplete="email" required>
+
+          <label for="registro-password">Contraseña</label>
+          <input id="registro-password" name="password" type="password"
+                 autocomplete="new-password" minlength="8" required>
+
+          <label for="confirmacion">Conf. contraseña</label>
+          <input id="confirmacion" name="confirmacion" type="password"
+                 autocomplete="new-password" minlength="8" required>
+
+          <button type="submit">Registrar</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="login-titulo">
+        <h2 id="login-titulo">Inicio de Sesión</h2>
+        <form action="{{ url_for('usuarios.login') }}" method="post">
+          <label for="login-email">E-mail</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" required>
+
+          <label for="login-password">Contraseña</label>
+          <input id="login-password" name="password" type="password"
+                 autocomplete="current-password" required>
+
+          <button type="submit">Iniciar Sesión</button>
+        </form>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

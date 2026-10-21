@@ -1,0 +1,130 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, sans-serif;
+  color: #171717;
+  background: #f4f4f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 48px 20px;
+}
+
+.page {
+  width: min(100%, 820px);
+  margin: 0 auto;
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgb(0 0 0 / 8%);
+}
+
+h1 {
+  margin: 0 0 28px;
+  font-size: 2rem;
+}
+
+.forms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.panel h2 {
+  margin: 0 0 20px;
+  font-size: 1.35rem;
+}
+
+.panel form {
+  display: grid;
+  grid-template-columns: minmax(96px, 0.9fr) minmax(120px, 1.1fr);
+  align-items: center;
+  gap: 12px 10px;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+  padding: 6px 8px;
+  border: 1px solid #777;
+  border-radius: 3px;
+  font: inherit;
+}
+
+button {
+  grid-column: 2;
+  justify-self: start;
+  padding: 8px 12px;
+  border: 1px solid #222;
+  border-radius: 3px;
+  background: #222;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #444;
+}
+
+.messages {
+  margin: -10px 0 24px;
+}
+
+.message {
+  margin: 8px 0;
+}
+
+.message--error {
+  color: #a11;
+}
+
+.message--success {
+  color: #176b31;
+}
+
+.welcome {
+  min-height: 260px;
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+}
+
+.link-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #06c;
+  text-decoration: underline;
+}
+
+.link-button:hover {
+  background: transparent;
+  color: #004a99;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .page {
+    padding: 24px 18px;
+  }
+
+  .forms {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
